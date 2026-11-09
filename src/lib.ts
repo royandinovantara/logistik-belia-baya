@@ -1,0 +1,1 @@
+import {createClient} from '@supabase/supabase-js';const u=import.meta.env.VITE_SUPABASE_URL;const k=import.meta.env.VITE_SUPABASE_ANON_KEY;export const ready=!!u&&!!k&&!u.includes('YOUR_PROJECT')&&!k.includes('YOUR_SUPABASE');export const db=ready?createClient(u,k):null;
