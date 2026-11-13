@@ -85,3 +85,48 @@
  .plan-remove { grid-column:2; grid-row:1; }
  .plan-progress-meta { align-items:flex-start; flex-direction:column; gap:4px; }
 }
+
+.order-project { margin-top: 18px; }
+.order-project .plan-row { margin-top: 12px; padding: 14px; border: 1px solid var(--border, #e5e7eb); border-radius: 12px; }
+.order-project ul { margin: 10px 0 0; padding-left: 20px; line-height: 1.8; }
+.export-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+/* Perapian baris Order Material: empat kolom isian dan tombol silang. */
+.plan-form .line-row{grid-template-columns:minmax(170px,2fr) minmax(105px,.8fr) minmax(85px,.6fr) minmax(130px,1fr) 36px;gap:9px}
+.plan-form .remove-line{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #f3d5d2;background:#fff5f4;color:#b33b35;transition:background .15s ease,color .15s ease}
+.plan-form .remove-line:hover:not(:disabled){background:#b33b35;color:#fff}
+.plan-form .remove-line:disabled{opacity:.4;cursor:not-allowed}
+@media(max-width:850px){.plan-form .line-row{grid-template-columns:minmax(130px,2fr) minmax(80px,.8fr) minmax(75px,.6fr) minmax(105px,1fr) 32px;gap:5px}.plan-form .remove-line{width:32px}}
+@media(max-width:560px){.plan-form .line-row{grid-template-columns:1fr 1fr}.plan-form .line-row .remove-line{grid-column:2;justify-self:end}}
+
+/* Rencana Barang: samakan label dan kontrol input dengan form lain. */
+.plan-form { display:grid; grid-template-columns:minmax(0,2fr) minmax(170px,1fr) minmax(170px,1fr); gap:14px; }
+.plan-form .plan-field { display:flex; flex-direction:column; gap:6px; min-width:0; }
+.plan-form .plan-field > label,
+.plan-form .line-row > label { display:flex; flex-direction:column; gap:6px; color:#38516a; font-size:11px; font-weight:700; line-height:1.35; }
+.plan-form .plan-field input,
+.plan-form .plan-field select,
+.plan-form .line-row input { width:100%; min-width:0; height:40px; box-sizing:border-box; border:1px solid #dfe6ed; border-radius:8px; padding:0 11px; background:#fff; color:#33485e; font:inherit; font-size:12px; font-weight:400; outline:0; }
+.plan-form .plan-field input:focus,
+.plan-form .plan-field select:focus,
+.plan-form .line-row input:focus { border-color:#b78a49; box-shadow:0 0 0 2px #d8ad6930; }
+.plan-form .line-editor { padding:14px; background:#f8fafc; }
+.plan-form .line-editor .line-row { display:grid; grid-template-columns:minmax(240px,2fr) minmax(130px,.75fr) minmax(110px,.65fr) minmax(170px,1fr) 36px; gap:12px; align-items:end; margin-top:12px; }
+.plan-form .line-row .item-search-select { width:100%; min-width:0; }
+.plan-form .line-row .item-search-input { height:40px; box-sizing:border-box; }
+.plan-form .line-row input[readonly] { background:#f1f4f7; color:#718096; }
+.plan-form .remove-line { align-self:end; }
+.item-search-options button small { display:flex; align-items:center; gap:7px; }
+.item-category-tag { display:inline-flex; align-items:center; border-radius:4px; padding:2px 5px; background:#eaf1f8; color:#47637e; font-size:9px; font-weight:700; }
+.item-category-tag.alat { background:#eaf6ef; color:#32724c; }
+@media(max-width:850px) {
+ .plan-form { grid-template-columns:1fr 1fr; }
+ .plan-form .line-editor,.plan-form > .button { grid-column:1/-1; }
+ .plan-form .line-editor .line-row { grid-template-columns:minmax(180px,2fr) minmax(100px,.8fr) minmax(90px,.7fr) minmax(130px,1fr) 32px; gap:7px; }
+}
+@media(max-width:560px) {
+ .plan-form { grid-template-columns:1fr; }
+ .plan-form .line-editor,.plan-form > .button { grid-column:1; }
+ .plan-form .line-editor .line-row { grid-template-columns:1fr 1fr; gap:10px; }
+ .plan-form .line-row > label:first-child { grid-column:1/-1; }
+ .plan-form .line-row .remove-line { grid-column:2; justify-self:end; }
+}
